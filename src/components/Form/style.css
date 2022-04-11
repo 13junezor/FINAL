@@ -1,0 +1,18 @@
+.pole {
+    width:  600px;
+    height: 150px;
+    padding: 5px 10px 5px 10px;
+    border:1px solid #999;
+    font-size:16px;
+    font-family: Tahoma;
+}
+.title {
+    width:  600px;
+}
+.img {
+    width:  600px;
+}
+
+.tag {
+    width:  600px;
+}

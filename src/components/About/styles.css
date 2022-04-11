@@ -1,0 +1,9 @@
+.bg {
+    background-color: rgb(211, 209, 207);
+    
+    padding: 5px 10px 5px 10px;
+    border:1px solid #999;
+    font-size:16px;
+    font-family: Tahoma;
+    border-radius: 16px;
+}
