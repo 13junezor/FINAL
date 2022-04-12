@@ -1,20 +1,30 @@
-import {  useState } from "react"
-import { useSelector } from "react-redux"
+/* eslint-disable react-hooks/exhaustive-deps */
+import {  useEffect, useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
+import { loadAllPosts } from "../../redux/actionCreators/postAC"
 import Postitem from "../Postitem/Postitem"
 
 const PostList = () => {
  const postos = useSelector(store => store.post)
  const [search, setSearch] = useState('')
- const filteredPosts = postos.filter(post => {
-     return post.tag.includes(search)
- })
- console.log(postos)
-    return (<>
+ /* const filteredPosts = postos.filter(post => {
+     return post.tags.includes(search)
+ }) */
+ 
+const dispatch = useDispatch()
+console.log(postos[0])
+useEffect(() => {
+dispatch(loadAllPosts())
+}, [])
+
+if (!postos.length) return <div> Нет постов!</div>
+
+    return (
+    <>
       <form className="search">
       <div >
-      
-      <input
-       placeholder='поиск по тегам'
+       <input
+       placeholder='Поиск по тегам'
         type="text"
          className="form-control" 
          id="exampleInputPassword1" 
@@ -24,13 +34,15 @@ const PostList = () => {
          </div>
     </form>
       <ul className='list-group'>
-  {filteredPosts.map((postos, i) => (
+  {postos.map((postos, i) => (
     <Postitem key={postos.id}
           index={i} id={postos.id} 
           title={postos.title}
           text={postos.text} 
-          img={postos.img}
-          tag={postos.tag} />     
+          img={postos.image}
+          tag={postos.tags}
+          likes={postos.likes.length}
+          author={postos.author.name} />     
   ))}
   </ul>
   </>
