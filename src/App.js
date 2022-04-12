@@ -11,11 +11,13 @@ import About from './components/About/About';
 import Head from './components/Head/Head';
 import Contacts from './components/Contacts/Contacts';
 import Detailpost from './components/Detailpost/Detailpost';
+import { Container } from '@mui/material';
 
 function App() {
 
   return (
    <>
+   <Container maxWidth="sm">
   <div className="container py-8">
     <BrowserRouter>
       <Head />
@@ -30,6 +32,7 @@ function App() {
     </Routes>
   </BrowserRouter>
   </div>
+  </Container>
   </>
     
   )

@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 
 import {  delPost } from "../../redux/actionCreators/postAC"
 import './styles.css'
-const Postitem = ({id, title, text, img, tag, index}) => {
+const Postitem = ({id,likes, title, text, img, tag, index}) => {
   const navigate = useNavigate()  
 const dispatch = useDispatch()
 
@@ -14,11 +14,13 @@ const deleteHandler = () => dispatch(delPost(id))
    <>
         <div className="container post">
           <h1 className="media-heading">{index+1}. {title}</h1>
+        
         <p>{text}</p>
         <div className="text-center">
        <img src={img} className="rounded pict" alt=""/>
         </div>
         <p>Тэги: {tag}</p>
+        <p>Лайки: {likes}</p>
         <div className="d-flex justify-content-around">
      <button 
      onClick={() => {navigate(`/posts/${id}`)}}

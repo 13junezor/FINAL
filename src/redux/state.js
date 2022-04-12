@@ -1,6 +1,8 @@
 
-const initState = {
-    post: []
+const initState = () => {
+    return {
+        post: []
+    }
 }
 
 
