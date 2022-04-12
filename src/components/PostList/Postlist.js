@@ -8,14 +8,17 @@ const PostList = () => {
  const postos = useSelector(store => store.post)
  const [search, setSearch] = useState('')
  /* const filteredPosts = postos.filter(post => {
-     return post.tag.includes(search)
+     return post.tags.includes(search)
  }) */
  
 const dispatch = useDispatch()
-console.log(postos[0].likes)
+console.log(postos[0])
 useEffect(() => {
 dispatch(loadAllPosts())
 }, [])
+
+if (!postos.length) return <div> Нет постов!</div>
+
     return (
     <>
       <form className="search">
@@ -38,7 +41,8 @@ dispatch(loadAllPosts())
           text={postos.text} 
           img={postos.image}
           tag={postos.tags}
-          likes={postos.likes.length} />     
+          likes={postos.likes.length}
+          author={postos.author.name} />     
   ))}
   </ul>
   </>

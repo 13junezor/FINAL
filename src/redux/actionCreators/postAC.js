@@ -1,5 +1,5 @@
 import { API_TOKEN } from "../../constants/constans"
-import {  DELETE_POST, NEW_POST, SET_ALL_POSTS } from "../types/postTypes"
+import {  DELETE_POST, MAKE_NEW_POST, NEW_POST, SET_ALL_POSTS } from "../types/postTypes"
 
 export const addPostQuery = () => (dispatch) => {
     const LSPostKey = 'postos'
@@ -26,6 +26,24 @@ export const loadAllPosts = () => async (dispatch) => {
       const postsFromApi = await response.json()
       dispatch(setAllPosts(postsFromApi))
 }
+
+export const makeNewPost = (allPosts) => ({
+    type: MAKE_NEW_POST,
+    payload: allPosts
+})
+export const queryNewPost = (post) => async (dispatch) => {
+   const response = await fetch('https://api.react-learning.ru/posts', {
+   method: "POST",     
+   headers: {
+          authorization: `Bearer ${API_TOKEN}`,
+          'Content-Type': 'application/json'
+        },
+        body: post
+      })
+      const postFromApi = await response.json()
+      dispatch(setAllPosts(postFromApi))
+}
+
 
 export const newPost = (title,text,img,tag) => ({
     type: NEW_POST,

@@ -1,7 +1,8 @@
 import {  useState } from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
-import { newPost } from "../../redux/actionCreators/postAC"
+
+import {  queryNewPost } from "../../redux/actionCreators/postAC"
 
 import './style.css'
 const Form = () => {
@@ -9,47 +10,42 @@ const Form = () => {
 const navigate = useNavigate()
    const [title, setTitle] = useState('')
    const [text, setText] = useState('')
-   const [img, setImg] = useState('')
-   const [tag, setTag] = useState('')
+   const [image, setImage] = useState('')
+   const [tags, setTags] = useState('')
 /* отлавливаем занчения инпута*/
 const changeTitle = (e) => {
-    setTitle(e.target.value)
-    }
+    setTitle(e.target.value)}
 const changeText = (e) => {
-    setText(e.target.value)
-    }
+    setText(e.target.value)}
 const changeImg = (e) => {
-    setImg(e.target.value)
-    }
+    setImage(e.target.value) }
 const changeTag = (e) => {
-    setTag(e.target.value)
-    }
-/* отлавливаем значения формы*/
+    setTags(e.target.value) }
+/* отлавливаем значения формы ДОБАВИТЬ ВАЛИДАЦИЮ*/
 const submitHandler = (e) => {
-    e.preventDefault()
-      /* проверяем на пустые строки */
-      let newTitle = title.trim()
-      if (newTitle) {
-     dispatch(newPost(title, text, img,tag))
+  const preparedPostQuery = {
+    title,
+    text,
+    image,
+    tags: tags.split(',').map((el) => el.trim()) 
+  }
+   
+     dispatch(queryNewPost(JSON.stringify(preparedPostQuery)))
     setTitle('')
     setText('')
-    setImg('')
-    setTag('')
+    setImage('')
+    setTags('')
     navigate(`/posts`)
       }
-      else {alert('Введите заголовок!') 
-      
-    }
-       }
+     
        
-   
-
    return (
     <form onSubmit={submitHandler} className="d-flex flex-column align-items-center">
     <div className="mb-3">
       <label for="exampleInputEmail1" 
       className="form-label title">Заголовок</label>
       <input 
+      helperText="privet"
       onChange={changeTitle}
       type="text" 
       className="form-control " 
@@ -83,7 +79,7 @@ const submitHandler = (e) => {
       type="text" 
       className="form-control" 
       id="exampleInputPassword1" 
-      value={img}
+      value={image}
       />
       <div id="emailHelp" className="form-text">Добавьте ссылку на изображение</div>
     </div>
@@ -96,7 +92,7 @@ const submitHandler = (e) => {
       type="text" 
       className="form-control" 
       id="exampleInputPassword1" 
-      value={tag}
+      value={tags}
       />
       <div id="emailHelp" className="form-text">Добавьте тег статьи</div>
     </div>
