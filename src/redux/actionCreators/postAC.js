@@ -17,8 +17,12 @@ export const setAllPosts = (allPosts) => ({
     type: SET_ALL_POSTS,
     payload: allPosts
 })
-export const loadAllPosts = () => async (dispatch) => {
-   const response = await fetch('https://api.react-learning.ru/posts', {
+export const loadAllPosts = (filterValue) => async (dispatch) => {
+  const urlForFetch = filterValue
+   ? `https://api.react-learning.ru/posts/search/?query=${filterValue}` 
+   : "https://api.react-learning.ru/posts"
+  
+    const response = await fetch(urlForFetch, {
         headers: {
           authorization: `Bearer ${API_TOKEN}`
         }
