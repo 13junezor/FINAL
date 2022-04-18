@@ -1,7 +1,8 @@
 
 const initState = () => {
     return {
-        post: []
+        post: [],
+        search: "",
     }
 }
 
