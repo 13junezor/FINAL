@@ -22,7 +22,7 @@ const changeImg = (e) => {
 const changeTag = (e) => {
     setTags(e.target.value) }
 /* отлавливаем значения формы ДОБАВИТЬ ВАЛИДАЦИЮ*/
-const submitHandler = (e) => {
+const submitHandler = () => {
   const preparedPostQuery = {
     title,
     text,
@@ -35,7 +35,7 @@ const submitHandler = (e) => {
     setText('')
     setImage('')
     setTags('')
-    navigate(`/posts`)
+    navigate(`/`)
       }
      
        
@@ -45,8 +45,7 @@ const submitHandler = (e) => {
       <label for="exampleInputEmail1" 
       className="form-label title">Заголовок</label>
       <input 
-      helperText="privet"
-      onChange={changeTitle}
+            onChange={changeTitle}
       type="text" 
       className="form-control " 
       id="exampleInputEmail1" 

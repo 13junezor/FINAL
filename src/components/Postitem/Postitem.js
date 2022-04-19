@@ -2,13 +2,13 @@ import React from "react"
 import { useDispatch } from "react-redux"
 import { useNavigate } from "react-router-dom"
 
-import {  delPost } from "../../redux/actionCreators/postAC"
+
 import './styles.css'
-const Postitem = ({id,likes, author, title, text, img, tag, index}) => {
+const Postitem = ({id,likes,comments, author, title, text, img, tag, index}) => {
   const navigate = useNavigate()  
 const dispatch = useDispatch()
 const descript = text.length > 200 ? text.slice(0,200) + '...' : text
-const deleteHandler = () => dispatch(delPost(id))
+
 
  return (
    <>
@@ -21,6 +21,7 @@ const deleteHandler = () => dispatch(delPost(id))
         </div>
         <p>Тэги: {tag}</p>
         <p>Лайки: {likes}</p>
+        
         <div className="d-flex justify-content-around">
      <button 
      onClick={() => {navigate(`/posts/${id}`)}}
@@ -30,15 +31,13 @@ const deleteHandler = () => dispatch(delPost(id))
          </button>
         
      <button 
-     onClick={deleteHandler}
+     // onClick={deleteHandler}
      type="button" 
      className="btn btn-outline-danger dlting">
          Удалить
          </button>
          </div>
-     </div>
-     
-     
+     </div>   
          </>
 )
 }
