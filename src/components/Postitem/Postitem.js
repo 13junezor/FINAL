@@ -1,12 +1,12 @@
 import React from "react"
-import { useDispatch } from "react-redux"
+
 import { useNavigate } from "react-router-dom"
 
 
 import './styles.css'
 const Postitem = ({id,likes,comments, author, title, text, img, tag, index}) => {
   const navigate = useNavigate()  
-const dispatch = useDispatch()
+
 const descript = text.length > 200 ? text.slice(0,200) + '...' : text
 
 

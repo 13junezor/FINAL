@@ -36,8 +36,8 @@ useEffect(() => {
     </form>
       <ul className='list-group'>
   {postos.map((postos, i) => (
-    <Postitem key={postos.id}
-          index={i} id={postos.id} 
+    <Postitem key={postos._id}
+          index={i} id={postos._id} 
           title={postos?.title}
           text={postos?.text} 
           img={postos?.image}

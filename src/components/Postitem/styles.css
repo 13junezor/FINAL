@@ -5,6 +5,7 @@
 }
 
 .post {
+    max-width: 500px;
     border: 1px solid #777;
     padding: 20px;
 border-radius: 16px;

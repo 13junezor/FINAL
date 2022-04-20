@@ -1,4 +1,4 @@
-import { ADD_POST, DELETE_POST, EDIT_POST, SET_ALL_POSTS, MAKE_NEW_POST, NEW_POST } from "../types/postTypes";
+import { ADD_POST, DELETE_POST, EDIT_POST, SET_ALL_POSTS, MAKE_NEW_POST, NEW_POST, DETAIL_POST } from "../types/postTypes";
 
 export const postsReducer = (store = [], action) => {
     switch (action.type) {
@@ -7,7 +7,8 @@ export const postsReducer = (store = [], action) => {
         case MAKE_NEW_POST:
             return [...store, 
             action.payload]
-
+        case DETAIL_POST:
+            return [...store, action.payload]
         case ADD_POST:
             return action.payload
 

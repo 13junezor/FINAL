@@ -1,38 +1,56 @@
-import {  useEffect } from "react"
-import { useSelector } from "react-redux"
-import { useParams } from "react-router-dom"
+/* eslint-disable react-hooks/exhaustive-deps */
+
+
+import {  useEffect, useRef, useState } from "react"
+
+import {  useParams } from "react-router-dom"
+import { API_TOKEN } from "../../constants/constans"
 
 import Detail from "../Detail/Detail"
 
-
-const LSPostKey = 'postos'
-
-function Detailpost() {
-    const {postsId} = useParams()
-    
-    const postos = useSelector(store => store.post)
-    useEffect(() => {
-        const dataFromLs = localStorage.getItem(LSPostKey)
-        JSON.parse(dataFromLs)
-                }, [])
-        useEffect(() => {
-                localStorage.setItem(LSPostKey, JSON.stringify(postos))
-                }, [postos])
+const Detailpost = () => {
+        const { postsId } = useParams();
+        const [post, setPost] = useState({});
         
+        const controller = useRef(new AbortController());
 
-const ner = postos.filter(item => item.id === +postsId)
+      
+        useEffect(() => {
+          fetch(`https://api.react-learning.ru/posts/${postsId}`, {
+            
+            headers: {
+              authorization: `Bearer ${API_TOKEN}`,
+            },
+          })
+            .then((response) => response.json())
+            .then((dataFromServer) => setPost(dataFromServer));
+      
+          return () => {
+            
+            controller.current.abort();
+          };
+        }, [postsId, API_TOKEN]);
+      console.log(post, postsId)
+        const content = () => {
+          if (!post._id) {
+            return <strong>Loading...</strong>;
+          }
+      
+
         return (
-<ul className='list-group post'>
-  {
-  ner.map((postos, i) => (
-    <Detail key={postos.id}
-          index={i} id={postos.id} 
-          title={postos.title}
-          text={postos.text} 
-          img={postos.img}
-          tag={postos.tag} />     
-  ))}
-  </ul>
-        )
+                <ul className='list-group post'>
+                {
+                
+                  <Detail
+                        title={post?.title}
+                        text={post?.text} 
+                        img={post?.image}
+                        tag={post?.tags.join(', ')}
+                        likes ={post?.likes.length} />     
+                }
+                </ul>
+                      )
+            };
+  return <div>{content()}</div>;
 }
 export default Detailpost
