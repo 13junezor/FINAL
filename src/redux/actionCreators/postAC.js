@@ -2,6 +2,7 @@
 import { API_TOKEN } from "../../constants/constans"
 import {  MAKE_NEW_POST,  SET_ALL_POSTS } from "../types/postTypes"
 import axios from 'axios'
+import { axiosInstance } from "../../cfg/axios"
 
 export const setAllPosts = (allPosts) => ({
     type: SET_ALL_POSTS,
@@ -12,14 +13,11 @@ export const loadAllPosts = (filterValue) => async (dispatch) => {
    ? `https://api.react-learning.ru/posts/search/?query=${filterValue}` 
    : "https://api.react-learning.ru/posts"
   
-const response = await axios.get('https://api.react-learning.ru/posts/search/', {
+const response = await axiosInstance.get('posts/search/', {
      params: {
     query: filterValue
     },
-    headers: {
-    authorization: `Bearer ${API_TOKEN}`
-    },
-      })
+})
 
 const postsFromApi = response.data
 
@@ -31,14 +29,13 @@ export const makeNewPost = (allPosts) => ({
     payload: allPosts
 })
 export const queryNewPost = (post) => async (dispatch) => {
-   const bodyObject = JSON.parse(post)
-    const response = await axios.post('https://api.react-learning.ru/posts', bodyObject, {  
-headers: {
-          authorization: `Bearer ${API_TOKEN}`,
-    }
-            })
+ const bodyObject = JSON.parse(post)
+ const response = await axiosInstance.post('posts', bodyObject, {  
+ })
 
-      const postFromApi = await response.json()
-      dispatch(setAllPosts(postFromApi))
+ const postFromApi = response.data
+ dispatch(makeNewPost(postFromApi))
 }
+
+
 

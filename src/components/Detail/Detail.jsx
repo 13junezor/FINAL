@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom"
 import Modal from "../Modal/Modal"
 import Redach from "../redach/redach"
 
-const Detail = ({id, title, text, img, tag, index}) => {
+const Detail = ({id, title, text, img, tag,likes, index}) => {
   const navigate = useNavigate()  
 const [viewModal, setViewModal] = useState(false)
 const openModal = () => {
@@ -21,12 +21,13 @@ closeModal()
  return (
    <>
         <div className="container">
-          <h1 className="media-heading">{index+1}. {title}</h1>
-        <p>{text}</p>
+          <h1 className="media-heading"> {title}</h1>
+        <p> Текст статьи: {text}</p>
         <div className="text-center">
        <img src={img} class="rounded pict" alt=""/>
         </div>
         <p>Тэги: {tag}</p>
+        <p>Лайки: {likes} </p>
      
      
      <div className="d-flex justify-content-around">
