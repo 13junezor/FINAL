@@ -5,3 +5,5 @@ export const NEW_POST = "NEW_POST"
 export const DETAIL_POST = "DETAIL_POST"
 export const SET_ALL_POSTS = "SET_ALL_POSTS"
 export const MAKE_NEW_POST = "MAKE_NEW_POST"
+export const LIKE_POST = "LIKE_POST"
+export const UPDATE_POST = 'UPDATE_POST'

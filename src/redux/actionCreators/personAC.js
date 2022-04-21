@@ -1,5 +1,6 @@
 import { axiosInstance } from "../../cfg/axios";
-import { SIGN_IN } from "../types/personTypes";
+import axios from "axios"
+import { GET_PERSON, SIGN_IN } from "../types/personTypes";
 
 export const signIn = (person) => ({
     type: SIGN_IN,
@@ -23,3 +24,21 @@ dispatch(signIn({
 )
 cb && cb()
 }
+
+export const getPerson = (token, person) => ({
+    type: GET_PERSON,
+    payload: {
+        ...person,
+        token
+    }
+})
+
+export const getPersonQuery = (token) => async (dispatch) => {
+    const response = await axios.get(
+        'users/me',{
+        headers: {
+			authorization: `Bearer ${token}` 
+		}})
+        const personFromApi = await response.data
+        dispatch(getPerson(personFromApi, token))
+    }

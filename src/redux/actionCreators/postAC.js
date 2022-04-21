@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { API_TOKEN } from "../../constants/constans"
-import {  MAKE_NEW_POST,  SET_ALL_POSTS } from "../types/postTypes"
+import {  DELETE_POST, MAKE_NEW_POST,  SET_ALL_POSTS, UPDATE_POST } from "../types/postTypes"
 import axios from 'axios'
 import { axiosInstance } from "../../cfg/axios"
 
@@ -24,6 +24,23 @@ const postsFromApi = response.data
  dispatch(setAllPosts(postsFromApi))
 }
 
+export const deletePost = (_id) => ({
+	type: DELETE_POST,
+	payload: _id
+})
+export const deletePostQuery = (_id, token) => async (dispatch) =>{
+	
+	const response= await fetch(`https://api.react-learning.ru/posts/${_id}`, {
+		method: 'DELETE',
+		headers: {
+			authorization: `Bearer ${token}`
+		} ,		
+	})	
+	if(response.status === 200) {		
+		dispatch(deletePost(_id))
+	}
+}
+
 export const makeNewPost = (allPosts) => ({
     type: MAKE_NEW_POST,
     payload: allPosts
@@ -35,6 +52,27 @@ export const queryNewPost = (post) => async (dispatch) => {
 
  const postFromApi = response.data
  dispatch(makeNewPost(postFromApi))
+}
+export const updatePost = (updatePost) => ({
+	type: UPDATE_POST,
+	payload: updatePost,
+}) 
+
+export const updateNewPost = (post, token) => async (dispatch) => {
+
+	const response = await fetch('https://api.react-learning.ru/posts', {
+		method: "PATCH",
+		headers: {
+			authorization: `Bearer ${token}`,
+			'Content-Type': 'application/json' 
+		},
+	
+	})
+
+	const postFromApi = await response.json()
+
+	dispatch(updatePost(postFromApi))
+
 }
 
 

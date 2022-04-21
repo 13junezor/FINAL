@@ -6,9 +6,21 @@
 
 .post {
     max-width: 500px;
-    border: 1px solid #777;
     padding: 20px;
 border-radius: 16px;
 margin-top: 20px;
-background-color: rgb(240, 236, 236);
+background-color: #ffff;
+-webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+-moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}
+
+.card__desc{
+    border-radius: 16px;
+    padding-top: 15px;
+    padding-left: 30px;
+    padding-right: 30px;
+    margin-top: 5px;
+    background-color: rgb(250, 250, 250);
+   
 }
