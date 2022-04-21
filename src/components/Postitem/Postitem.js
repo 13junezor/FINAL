@@ -1,4 +1,6 @@
 import React from "react"
+import FavoriteIcon from "@mui/icons-material/Favorite";
+import { IconButton } from "@mui/material";
 
 import { useNavigate } from "react-router-dom"
 
@@ -13,14 +15,22 @@ const descript = text.length > 200 ? text.slice(0,200) + '...' : text
  return (
    <>
         <div className="container post">
-          <h1 className="media-heading">{index+1}. {title}</h1>
-          <p>Автор: {author}</p>
-        <p>{descript}</p>
+          <p className="media-heading">{index+1}.<strong>{title}</strong></p>
+
         <div className="text-center">
        <img src={img} className="rounded pict" alt=""/>
         </div>
-        <p>Тэги: {tag}</p>
-        <p>Лайки: {likes}</p>
+        <p className="card__desc">
+        <p><strong>{author}:</strong>{descript}</p>
+        <p>#{tag}</p>
+        <p>
+          <IconButton aria-label="add to favorites">
+            <FavoriteIcon />
+          </IconButton>
+         {likes}
+        </p>
+        </p>
+        
         
         <div className="d-flex justify-content-around">
      <button 

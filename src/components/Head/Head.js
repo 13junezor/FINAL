@@ -6,16 +6,22 @@ function Head() {
   
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light cap" >
-  <div className="container-fluid cap">
-  <Link className='nav-link but' to="/">Главная</Link>
-    
-    <div className="collapse navbar-collapse" id="navbarNav">
-      <ul className="navbar-nav">
+  <div className="container">
+ 
+
+      <ul className="navbar-nav d-flex flex-row">
+      <li class="nav-item">
+    <Link className='nav-link but' to="/">Главная</Link>
+    </li>
       <li class="nav-item">
       <Link className='nav-link but' to="signin">Войти</Link>
+      </li>
+      <li className="nav-item">
       <Link className='nav-link but' to="posts">Посты</Link>
-        <Link className='nav-link but' to="posting">Опубликовать статью</Link>
-        </li>
+      </li>
+      <li className="nav-item">
+      <Link className='nav-link but' to="posting">Опубликовать статью</Link>
+      </li>
         <li className="nav-item">
         <Link className='nav-link but' to="about">О нас</Link>
         </li>
@@ -24,7 +30,6 @@ function Head() {
         </li>
                     </ul>
     </div>
-  </div>
 </nav>
   )
 }

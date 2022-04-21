@@ -41,7 +41,7 @@ useEffect(() => {
           title={postos?.title}
           text={postos?.text} 
           img={postos?.image}
-          tag={postos?.tags.join(', ')}
+          tag={postos?.tags.join(' #')}
           likes={postos.likes?.length}
           author={postos.author?.name}
            />     
