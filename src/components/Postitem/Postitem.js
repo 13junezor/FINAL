@@ -11,7 +11,6 @@ const Postitem = ({id,likes,comments, author, title, text, img, tag, index}) => 
 
 const descript = text.length > 200 ? text.slice(0,200) + '...' : text
 
-
  return (
    <>
         <div className="container post">

@@ -10,10 +10,10 @@ function Head() {
  
 
       <ul className="navbar-nav d-flex flex-row">
-      <li class="nav-item">
+      <li className="nav-item">
     <Link className='nav-link but' to="/">Главная</Link>
     </li>
-      <li class="nav-item">
+      <li className="nav-item">
       <Link className='nav-link but' to="signin">Войти</Link>
       </li>
       <li className="nav-item">
@@ -25,8 +25,11 @@ function Head() {
         <li className="nav-item">
         <Link className='nav-link but' to="about">О нас</Link>
         </li>
-        <li class="nav-item">
+        <li className="nav-item">
         <Link className='nav-link but' to="contacts">Контакты</Link>
+        </li>
+        <li className="nav-item">
+        <Link className='nav-link but' to="/signIn">Выйти</Link>
         </li>
                     </ul>
     </div>
