@@ -13,7 +13,7 @@ const search = useSelector((store) => store.search)
    dispatch(filterValue(e.target.value.trim()))
  }
 const dispatch = useDispatch()
-console.log(postos[1])
+console.log(postos[61])
 
 const debouncedSearch = useDebounce(search, 500)
 
@@ -41,8 +41,9 @@ useEffect(() => {
           title={postos?.title}
           text={postos?.text} 
           img={postos?.image}
-          tag={postos?.tags.join(', ')}
+          tag={postos?.tags.join(' #')}
           likes={postos.likes?.length}
+          like={postos.likes}
           author={postos.author?.name}
            />     
   ))}

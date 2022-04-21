@@ -55,7 +55,7 @@ const submitHandler = () => {
       <div id="emailHelp" className="form-text">Добавьте заголовок статьи</div>
     </div>
     <div className="mb-3">
-            <div class="form-group">
+    <div className="form-group">
     <label for="exampleFormControlTextarea1">Текс статьи</label>
     <textarea 
     onChange={changeText}
