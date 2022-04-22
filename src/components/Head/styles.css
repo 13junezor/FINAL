@@ -1,7 +1,14 @@
 .cap {
     width:100%;
     text-align: center;
-    
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    margin-bottom:10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+      
 }
 
 .but {

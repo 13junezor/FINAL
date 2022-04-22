@@ -13,6 +13,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { signInQuery } from '../../redux/actionCreators/personAC';
+import s from './style.module.css';
 
 function Copyright(props) {
   return (
@@ -51,8 +52,9 @@ let from = location.state?.from?.pathname || '/'
   };
 
   return (
-    <ThemeProvider theme={theme}>
-      <Container component="main" maxWidth="xs">
+
+    <ThemeProvider  theme={theme}>
+      <Container className={s.form__wrapper} component="main" maxWidth="xs">
         <CssBaseline />
         <Box
           sx={{
@@ -60,6 +62,7 @@ let from = location.state?.from?.pathname || '/'
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
+            backgroundColor: 'white'
           }}
         >
           <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>

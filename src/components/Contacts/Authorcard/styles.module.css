@@ -1,0 +1,32 @@
+.user__card{
+    margin-right: 20px;
+    padding: 40px;
+    width: 400px;
+    align-items: center;
+    justify-content: center;
+    display:flex;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    text-align: left;
+}
+.user__card_avatar{
+    width: 200px;
+}
+.user__card_text{
+    font-size: 16px;
+    text-align: left;
+    font-weight: 400;
+}
+.user__card_text a{
+    text-decoration: none;
+}
+.name{
+    font-size: 20px;
+    font-weight: 700;
+   
+}
+
+

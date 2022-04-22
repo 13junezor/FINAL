@@ -1,5 +1,4 @@
 import PostList from "../PostList/Postlist"
-
 const Main = () => {
 
     return (
