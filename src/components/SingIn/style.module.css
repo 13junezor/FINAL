@@ -1,0 +1,10 @@
+.form__wrapper{
+    background-color: #fff;
+    max-width: 500px;
+        border-radius: 16px;
+        margin-top: 20px;
+        background-color: #ffff;
+        -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+}

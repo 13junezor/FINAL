@@ -31,8 +31,7 @@ const likeHandler = () => {
  return (
    <>
         <div className="container post">
-          <p className="media-heading">{index+1}.<strong>{title}</strong></p>
-
+        <p className="media-heading">{index+1}.<strong>{title}</strong></p>
         <div className="text-center">
        <img src={img} className="rounded pict" alt=""/>
         </div>
