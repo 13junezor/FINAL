@@ -23,29 +23,29 @@ function App() {
    <Container maxWidth="xl">
   <div className="container-xl">
     <BrowserRouter>
-      <Head />
-          <hr />
-               <Routes>
-    <Route path="/"
-     element={<Greeting />
-     } />
-    <Route path="/posting"
-     element={
-      <RequireAuth>
-     <Header />
-     </RequireAuth>} />
-      <Route path="/about" element={<About />} />
-      <Route path="/contacts" element={<Contacts />} />
-      <Route path="/posts" element={
-     <RequireAuth>
-     <Main />
-     </RequireAuth>} />
-      <Route path="/posts/:postsId" element={
-      <RequireAuth>
-      <Detailpost />
-      </RequireAuth>} />
-      <Route path="/signin" element={<SignIn />} />
-    </Routes>
+            <Head />
+                <hr />
+           <Routes>
+          <Route path="/"
+          element={<Greeting />
+          } />
+          <Route path="/posting"
+          element={
+            <RequireAuth>
+          <Header />
+          </RequireAuth>} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contacts" element={<Contacts />} />
+            <Route path="/posts" element={
+          <RequireAuth>
+          <Main />
+          </RequireAuth>} />
+            <Route path="/posts/:postsId" element={
+            <RequireAuth>
+            <Detailpost />
+            </RequireAuth>} />
+            <Route path="/signin" element={<SignIn />} />
+          </Routes>
   </BrowserRouter>
   </div>
   </Container>
