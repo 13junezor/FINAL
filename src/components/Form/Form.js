@@ -43,57 +43,61 @@ const submitHandler = () => {
     <form onSubmit={submitHandler} className="d-flex flex-column align-items-center">
     <div className="mb-3">
       <label for="exampleInputEmail1" 
-      className="form-label title">Заголовок</label>
+      className="form-label title">Заголовок открытки</label>
       <input 
-            onChange={changeTitle}
+      onChange={changeTitle}
       type="text" 
       className="form-control " 
       id="exampleInputEmail1" 
       aria-describedby="emailHelp" 
       value={title}
+      placeholder="Заголовок..."
+      required
       />
-      <div id="emailHelp" className="form-text">Добавьте заголовок статьи</div>
     </div>
     <div className="mb-3">
     <div className="form-group">
-    <label for="exampleFormControlTextarea1">Текс статьи</label>
+    <label for="exampleFormControlTextarea1">Описание</label>
     <textarea 
     onChange={changeText}
     className="form-control pole" 
     id="exampleFormControlTextarea1" 
     rows="3"
-    value={text}>
-    
+    value={text}
+    placeholder="Текст открытки..."
+  
+    >
+      
     </textarea>
   </div>
-
-      <div id="emailHelp" className="form-text">Добавьте текст статьи</div>
     </div>
     <div 
     className="mb-3">
       <label for="exampleInputPassword1"
-       className="form-label img">Ссылка на изображение</label>
+       className="form-label img">Изображение</label>
       <input 
       onChange={changeImg}
       type="text" 
       className="form-control" 
       id="exampleInputPassword1" 
       value={image}
+      placeholder="Добавьте ссылку на изображение"
+      required
       />
-      <div id="emailHelp" className="form-text">Добавьте ссылку на изображение</div>
     </div>
     <div 
     className="mb-3">
       <label for="exampleInputPassword1"
-       className="form-label tag">Укажите тег</label>
+       className="form-label tag">Теги:</label>
       <input 
       onChange={changeTag}
       type="text" 
       className="form-control" 
       id="exampleInputPassword1" 
       value={tags}
+      placeholder="Укажите теги, по которым друзья смогу найти ваши открытки"
       />
-      <div id="emailHelp" className="form-text">Добавьте тег статьи</div>
+      {/* <div id="emailHelp" className="form-text"></div> */}
     </div>
         <button 
     type="submit" 

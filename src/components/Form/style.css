@@ -5,6 +5,10 @@
     border:1px solid #999;
     font-size:16px;
     font-family: Tahoma;
+        resize: none;
+        width: 400px;
+        height: 150px;
+    
 }
 .title {
     width:  600px;
