@@ -75,5 +75,3 @@ export const updateNewPost = (post, token) => async (dispatch) => {
 
 }
 
-
-

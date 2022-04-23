@@ -13,6 +13,9 @@ function Head() {
       <li className="nav-item">
     <Link className='nav-link but' to="/">Главная</Link>
     </li>
+    <li className="nav-item">
+        <Link className='nav-link but' to="/signup">Зарегистрироваться</Link>
+        </li>
       <li className="nav-item">
       <Link className='nav-link but' to="signin">Войти</Link>
       </li>

@@ -33,6 +33,7 @@ useEffect(() => {
          onChange={filterHandler}
                     />
          </div>
+         
     </form>
       <ul className='list-group'>
   {postos.map((postos, i) => (

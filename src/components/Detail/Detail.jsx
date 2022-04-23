@@ -4,6 +4,7 @@ import Modal from "../Modal/Modal";
 import Redach from "../redach/redach";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { IconButton } from "@mui/material";
+import CustomizedDialogs from "../modalComm/modalComm";
 
 const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
   const navigate = useNavigate();
@@ -54,6 +55,7 @@ const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
           >
             Назад
           </button>
+          <CustomizedDialogs />
           <button onClick={openModal} type="button" className="btn btn-warning">
             Изменить
           </button>

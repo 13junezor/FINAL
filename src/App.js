@@ -13,6 +13,7 @@ import { Container } from '@mui/material';
 import { RequireAuth } from './components/Auth/RequireAuth/RequireAuth';
 import SignIn from './components/SingIn/SignIn';
 import Greeting from './components/Greeting/Greeting';
+import SignUp from './components/Auth/registr';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
           <Header />
           </RequireAuth>} />
             <Route path="/contacts" element={<Contacts />} />
+            <Route path="/signup" element={<SignUp />} />
             <Route path="/posts" element={
           <RequireAuth>
           <Main />

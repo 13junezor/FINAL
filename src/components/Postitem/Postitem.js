@@ -8,6 +8,7 @@ import './styles.css'
 import { useDispatch, useSelector } from "react-redux";
 import { deletePostQuery } from "../../redux/actionCreators/postAC";
 import { deleteLikeQuery, setLikeQuery } from "../../redux/actionCreators/likeAC";
+
 const Postitem = ({id,likes,comments,like, author, title, text, img, tag, index, isAut}) => {
   const navigate = useNavigate()  
   const person = useSelector((store) => store.person)
@@ -53,6 +54,7 @@ const likeHandler = () => {
           </IconButton>
          {likes}
         </p>
+       
         </p>
         
         
