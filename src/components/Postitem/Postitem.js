@@ -8,9 +8,10 @@ import './styles.css'
 import { useDispatch, useSelector } from "react-redux";
 import { deletePostQuery } from "../../redux/actionCreators/postAC";
 import { deleteLikeQuery, setLikeQuery } from "../../redux/actionCreators/likeAC";
-const Postitem = ({id,likes,comments,like, author, title, text, img, tag, index}) => {
+const Postitem = ({id,likes,comments,like, author, title, text, img, tag, index, isAut}) => {
   const navigate = useNavigate()  
   const person = useSelector((store) => store.person)
+  const post = useSelector((store) => store.post)
 const descript = text.length > 200 ? text.slice(0,200) + '...' : text
 const dispatch = useDispatch()
 const deleteHandler = () => {
@@ -20,9 +21,15 @@ const deleteHandler = () => {
     dispatch(deletePostQuery(id, person.token));
   }
 };
+
+let pop = ''
+  if (isAut._id === person._id) {
+    pop = 'Ваш пост'
+  }
+
 const likeHandler = () => {
-  console.log(person.token, )
-  if (!like.includes(person._id)) {
+  console.log(post[60].author._id, post[61].author._id, person._id )
+    if (!like.includes(person._id)) {
     dispatch(setLikeQuery(id, person.token));
   } else {
     dispatch(deleteLikeQuery(id, person.token));
@@ -31,13 +38,15 @@ const likeHandler = () => {
  return (
    <>
         <div className="container post">
-        <p className="media-heading">{index+1}.<strong>{title}</strong></p>
+        <p className="media-heading">{index+1}.<strong>{title}</strong> </p>
+        <p> {pop} </p>
         <div className="text-center">
        <img src={img} className="rounded pict" alt=""/>
         </div>
         <p className="card__desc">
         <p><strong>{author}:</strong>{descript}</p>
         <p>#{tag}</p>
+        
         <p>
           <IconButton aria-label="add to favorites" onClick={likeHandler}>
             <FavoriteIcon />

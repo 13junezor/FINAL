@@ -45,6 +45,7 @@ useEffect(() => {
           likes={postos.likes?.length}
           like={postos.likes}
           author={postos.author?.name}
+          isAut={postos.author}
            />     
   ))}
   </ul>
