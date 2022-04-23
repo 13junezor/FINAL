@@ -1,7 +1,6 @@
 import { Link } from "react-router-dom";
 
 import './styles.css'
-
 function Head() {
 
   
@@ -9,6 +8,8 @@ function Head() {
     <nav className="navbar navbar-expand-lg navbar-light bg-light cap" >
   <div className="container">
       <ul className="navbar-nav d-flex flex-row">
+       <img src="logo.png" alt='logo' className="logo_img"/>
+      
       <li className="nav-item">
     <Link className='nav-link but' to="/">Главная</Link>
     </li>
@@ -16,13 +17,13 @@ function Head() {
       <Link className='nav-link but' to="signin">Войти</Link>
       </li>
       <li className="nav-item">
-      <Link className='nav-link but' to="posts">Посты</Link>
+      <Link className='nav-link but' to="posts">Все открытки</Link>
       </li>
       <li className="nav-item">
-      <Link className='nav-link but' to="posting">Опубликовать статью</Link>
+      <Link className='nav-link but' to="posting">Отправить</Link>
       </li>
         <li className="nav-item">
-        <Link className='nav-link but' to="contacts">Наши контакты</Link>
+        <Link className='nav-link but' to="contacts">Команда авторов</Link>
         </li>
         <li className="nav-item">
         <Link className='nav-link but' to="/signIn">Выйти</Link>

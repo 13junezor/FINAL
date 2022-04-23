@@ -39,6 +39,7 @@ const Detailpost = () => {
 
         return (
                 <ul className='list-group post'>
+                 <div>Детальная информация об открытке: </div> 
                 {
                 
                   <Detail

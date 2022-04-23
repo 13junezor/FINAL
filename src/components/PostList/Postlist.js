@@ -26,10 +26,10 @@ useEffect(() => {
       <form className="search">
       <div >
        <input
-       placeholder='Поиск постов по заголовку'
+       placeholder='Поиск открыток по заголовку'
         type="text"
          className="form-control" 
-         id="exampleInputPassword1" 
+         id="postcard__item_title" 
          onChange={filterHandler}
                     />
          </div>

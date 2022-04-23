@@ -40,15 +40,21 @@ const submitHandler = () => {
      
        
    return (
-    <form onSubmit={submitHandler} className="d-flex flex-column align-items-center">
+     <>
+
+     <div>
+       <img  className="Post_img" src="logo.png" alt="Logo-big"></img>
+     </div>
+<div>
+  <form onSubmit={submitHandler} className="d-flex flex-column align-items-center">
     <div className="mb-3">
-      <label for="exampleInputEmail1" 
-      className="form-label title">Заголовок открытки</label>
+      <label for="postcard__title" 
+      className="form-label title">Порадуй друзей открыткой!</label>
       <input 
       onChange={changeTitle}
       type="text" 
       className="form-control " 
-      id="exampleInputEmail1" 
+      id="postcard__title" 
       aria-describedby="emailHelp" 
       value={title}
       placeholder="Заголовок..."
@@ -57,11 +63,11 @@ const submitHandler = () => {
     </div>
     <div className="mb-3">
     <div className="form-group">
-    <label for="exampleFormControlTextarea1">Описание</label>
+    <label for="postcard__desc">Описание</label>
     <textarea 
     onChange={changeText}
     className="form-control pole" 
-    id="exampleFormControlTextarea1" 
+    id="postcard__desc" 
     rows="3"
     value={text}
     placeholder="Текст открытки..."
@@ -73,13 +79,13 @@ const submitHandler = () => {
     </div>
     <div 
     className="mb-3">
-      <label for="exampleInputPassword1"
+      <label for="postcard__img"
        className="form-label img">Изображение</label>
       <input 
       onChange={changeImg}
       type="text" 
       className="form-control" 
-      id="exampleInputPassword1" 
+      id="postcard__img" 
       value={image}
       placeholder="Добавьте ссылку на изображение"
       required
@@ -87,24 +93,27 @@ const submitHandler = () => {
     </div>
     <div 
     className="mb-3">
-      <label for="exampleInputPassword1"
+      <label for="postcard__tags"
        className="form-label tag">Теги:</label>
       <input 
       onChange={changeTag}
       type="text" 
       className="form-control" 
-      id="exampleInputPassword1" 
+      id="postcard__tags" 
       value={tags}
-      placeholder="Укажите теги, по которым друзья смогу найти ваши открытки"
+      placeholder="По тегам друзья смогу найти ваши открытки"
       />
       {/* <div id="emailHelp" className="form-text"></div> */}
     </div>
         <button 
     type="submit" 
     className="btn btn-primary">
-        Опубликовать
+        Отправить
         </button>
   </form>
+</div>
+     </>
+    
    ) 
 }
 export default Form
