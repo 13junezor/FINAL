@@ -18,9 +18,9 @@ import s from './style.module.css';
 function Copyright(props) {
   return (
     <Typography variant="body2" color="text.secondary" align="center" {...props}>
-      {'Copyright © '}
+      {'Команда №2 © '}
       
-       {' Наш проект в СберУниверситете'} 
+       {'Финальный проект в СберУниверситете'} 
       {' '}
       {new Date().getFullYear()}
       {'.'}
@@ -69,7 +69,7 @@ let from = location.state?.from?.pathname || '/'
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
-            Sign in
+            Вход
           </Typography>
           <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
             <TextField
@@ -106,7 +106,7 @@ let from = location.state?.from?.pathname || '/'
                               </Grid>
               <Grid item>
                 <Link href="#" variant="body2">
-                  {"Нет аккаунта? Зарегистрироваться"}
+                  {"Нет аккаунта? Можно создать"}
                 </Link>
               </Grid>
             </Grid>

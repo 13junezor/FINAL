@@ -24,10 +24,10 @@ const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
       <div className="container">
         <h1 className="media-heading">{title}</h1>
         <div className="text-center">
-          <img src={img} className="rounded pict" alt="" />
+          <img src={img} className="rounded pict" alt="картинка" />
         </div>
         <p>
-          <strong>Автор: {author}</strong>
+          <strong>Отправитель: {author}</strong>
         </p>
         <p>
           <strong>Подпись:</strong>
@@ -55,7 +55,7 @@ const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
             Назад
           </button>
           <button onClick={openModal} type="button" className="btn btn-warning">
-            Редактировать
+            Изменить
           </button>
         </div>
       </div>

@@ -41,7 +41,7 @@ const likeHandler = () => {
         <p className="media-heading">{index+1}.<strong>{title}</strong> </p>
         <p> {pop} </p>
         <div className="text-center">
-       <img src={img} className="rounded pict" alt=""/>
+       <img src={img} className="rounded pict" alt="img"/>
         </div>
         <p className="card__desc">
         <p><strong>{author}:</strong>{descript}</p>
@@ -61,7 +61,7 @@ const likeHandler = () => {
      onClick={() => {navigate(`/posts/${id}`)}}
      type="button" 
      className="btn btn-outline-info rding">
-         Читать в отдельном окне
+         Рассмотреть
          </button>
         
      <button 
