@@ -7,7 +7,6 @@ function Redach(){
     const postos = useSelector(store => store.post)
   const {postsId} = useParams()
 
-  
 
    const [title, setTitle] = useState('')
    const [text, setText] = useState('')
