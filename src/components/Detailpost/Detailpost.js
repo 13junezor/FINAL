@@ -44,7 +44,7 @@ const Detailpost = () => {
 
         return (
                 <>
-                <ul className='list-group post'>
+                <div className='container post'>
                  <div>Детальная информация об открытке: </div> 
                 {
                                   <Detail
@@ -54,7 +54,7 @@ const Detailpost = () => {
                         tag={post?.tags.join(', ')}
                         likes ={post?.likes.length} />     
                 }
-                </ul>
+                </div>
                 
       {comments.map((comment, index) => (
         <div key={index}>
