@@ -39,23 +39,23 @@ const likeHandler = () => {
  return (
    <>
         <div className="container post">
-        <p className="media-heading">{index+1}.<strong>{title}</strong> </p>
-        <p> {pop} </p>
+        <div className="media-heading">{index+1}.<strong>{title}</strong> </div>
+        <div> {pop} </div>
         <div className="text-center">
        <img src={img} className="rounded pict" alt="img"/>
         </div>
-        <p className="card__desc">
-        <p><strong>{author}:</strong>{descript}</p>
-        <p>#{tag}</p>
+        <div className="card__desc">
+        <div><strong>{author}:</strong>{descript}</div>
+        <div>#{tag}</div>
         
-        <p>
+        <div>
           <IconButton aria-label="add to favorites" onClick={likeHandler}>
             <FavoriteIcon />
           </IconButton>
          {likes}
-        </p>
+        </div>
        
-        </p>
+        </div>
         
         
         <div className="d-flex justify-content-around">

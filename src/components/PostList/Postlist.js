@@ -5,6 +5,7 @@ import { useDebounce } from "../../hooks/useDebounce"
 import { loadAllPosts } from "../../redux/actionCreators/postAC"
 import { filterValue } from "../../redux/actionCreators/searchAC"
 import Postitem from "../Postitem/Postitem"
+import style from "./style.module.css";
 
 const PostList = () => {
  const postos = useSelector(store => store.post)
@@ -13,7 +14,6 @@ const search = useSelector((store) => store.search)
    dispatch(filterValue(e.target.value.trim()))
  }
 const dispatch = useDispatch()
-console.log(postos[61])
 
 const debouncedSearch = useDebounce(search, 500)
 
@@ -23,6 +23,7 @@ useEffect(() => {
 
     return (
     <>
+      
       <form className="search">
       <div >
        <input
@@ -35,9 +36,10 @@ useEffect(() => {
          </div>
          
     </form>
-      <ul className='list-group'>
-  {postos.map((postos, i) => (
-    <Postitem key={postos._id}
+ 
+    <div className={style.postlist__wrapper}>
+         {postos.map((postos, i) => (
+         <Postitem key={postos._id}
           index={i} id={postos._id} 
           title={postos?.title}
           text={postos?.text} 
@@ -49,7 +51,9 @@ useEffect(() => {
           isAut={postos.author}
            />     
   ))}
-  </ul>
+  </div>
+  
+ 
   </>
   )
 }
