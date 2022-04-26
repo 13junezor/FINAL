@@ -18,7 +18,7 @@ function Redach({ title, image, text, _id }) {
       image: newImage,
       text: newText,
     };
-    // console.log({ preparedPostQuery });
+   
     const body = JSON.stringify(preparedPostQuery);
 
     dispatch(updatePostQuery(body, person.token, _id));

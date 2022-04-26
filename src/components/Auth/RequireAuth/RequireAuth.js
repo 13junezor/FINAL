@@ -6,7 +6,7 @@ export function RequireAuth({ children }) {
     let location = useLocation()
 
     if (!token) {
-        return <Navigate to="/signin" state={{from: location}} replace />
+        return <Navigate to="/" state={{from: location}} replace />
     }
     return children
 }
