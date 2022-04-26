@@ -2,12 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../Modal/Modal";
 import Redach from "../redach/redach";
-import FavoriteIcon from "@mui/icons-material/Favorite";
-import { IconButton } from "@mui/material";
-import CustomizedDialogs from "../modalComm/modalComm";
-import { useSelector } from "react-redux";
 
-const Detail = ({ _id, author, title, text, img, tag, likes, index }) => {
+import CustomizedDialogs from "../modalComm/modalComm";
+import {  useSelector } from "react-redux";
+
+const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
   const navigate = useNavigate();
   const [viewModal, setViewModal] = useState(false);
   const openModal = () => {
@@ -21,6 +20,16 @@ const Detail = ({ _id, author, title, text, img, tag, likes, index }) => {
     closeModal();
   };
   const post = useSelector((store) => store.post);
+  const person = useSelector((store) => store.person)
+  let edit = <></>
+  if (post.author?._id === person._id) {
+    edit = <button onClick={openModal} type="button" className="btn btn-warning">
+    Изменить
+  </button>
+  }
+  
+
+  
   return (
     <>
       <div className="container">
@@ -40,10 +49,8 @@ const Detail = ({ _id, author, title, text, img, tag, likes, index }) => {
           {tag}
         </p>
         <p>
-          <IconButton aria-label="add to favorites">
-            <FavoriteIcon />
-          </IconButton>
-          Публикация понравилась: <strong>{likes}</strong> раз
+          
+          Публикация понравилась: {likes.length} раз
         </p>
 
         <div className="d-flex justify-content-around">
@@ -57,9 +64,7 @@ const Detail = ({ _id, author, title, text, img, tag, likes, index }) => {
             Назад
           </button>
           <CustomizedDialogs />
-          <button onClick={openModal} type="button" className="btn btn-warning">
-            Изменить
-          </button>
+          {edit}
         </div>
       </div>
 
