@@ -19,7 +19,7 @@ const search = useSelector((store) => store.search)
 useEffect(() => {
   dispatch(loadAllPosts(debouncedSearch, person.token));
 }, [debouncedSearch, dispatch, person.token]);
-
+console.log(posts[0], posts[162]?.author._id, person._id)
     return (
     <>
       
@@ -38,7 +38,7 @@ useEffect(() => {
  
     <div className={style.postlist__wrapper}>
     {posts.map((post, i) => {
-        return <Postitem key={post._id} index={i}{...post} />;
+        return <Postitem key={post._id} isAut={post?.autor?._id} index={i}{...post} />;
       })}
   </div>
   

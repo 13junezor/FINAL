@@ -10,7 +10,7 @@ import { deletePostQuery } from "../../redux/actionCreators/postAC";
 import { deleteLikeQuery, setLikeQuery } from "../../redux/actionCreators/likeAC";
 
 
-const Postitem = ({index, image,author,title,text,tags,likes,_id, comments}) => {
+const Postitem = ({index, image,author,title,text,tags,likes,_id, comments, isAut}) => {
   const navigate = useNavigate()  
   const person = useSelector((store) => store.person)
 
@@ -24,10 +24,18 @@ const deleteHandler = () => {
   }
 };
 
-//let pop = ''
-  //if (isAut._id === person._id) {
-   // pop = 'Ваш пост'
- // }
+let pop = ''
+let del = <></>
+  if (author._id === person._id) {
+    pop = 'Ваш пост'
+ del = <button 
+onClick={deleteHandler}
+type="button" 
+className="btn btn-outline-danger dlting">
+    Удалить
+    </button>
+ }
+
 
 const likeHandler = () => {
   console.log(person._id )
@@ -43,6 +51,7 @@ const likeHandler = () => {
         <div className="container post">
         <div className="media-heading"><strong>{index+1}. {title}</strong> </div>
         <div> Автор: {author?.name} </div>
+        <div> Автор: {pop} </div>
         <div className="text-center">
        <img src={image} className="rounded pict" alt="img"/>
         </div>
@@ -67,13 +76,8 @@ const likeHandler = () => {
      className="btn btn-outline-info rding">
          Рассмотреть
          </button>
-        
-     <button 
-     onClick={deleteHandler}
-     type="button" 
-     className="btn btn-outline-danger dlting">
-         Удалить
-         </button>
+        {del}
+    
          </div>
      </div>   
          </>
