@@ -5,18 +5,20 @@ export const personReducer = (state = {}, action) => {
         case SIGN_IN:
             return {
                 ...state,
-                ...action.payload
+                ...action.payload,
             }
-            case GET_PERSON:
+        case GET_PERSON:
+            return {
+                ...state,
+                ...action.payload,
+            }
+            case SIGN_UP:
                 return {
                     ...state,
-                    ...action.payload,
-                }
-                case SIGN_UP:
-                    return {
-                        ...state,
-                        ...action.payload
-                }       
+                    ...action.payload
+            }
+    
+
         default:
             return state
     }

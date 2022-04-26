@@ -11,7 +11,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { signInQuery } from '../../redux/actionCreators/personAC';
 import s from './style.module.css';
 
@@ -36,19 +36,22 @@ const navigate = useNavigate()
 const location = useLocation()
 const dispatch = useDispatch()
 
-let from = location.state?.from?.pathname || '/'
+let from = location.state?.from?.pathname || "/";
+  // eslint-disable-next-line no-unused-vars
+  const person = useSelector((store) => store.person);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
-    dispatch(signInQuery({
-      email: data.get('email'),
-      password: data.get('password'),
-      cb: () => {
-        navigate(from, { replace: true })
-    },
-    })
-    )
+    dispatch(
+      signInQuery({
+        email: data.get("email"),
+        password: data.get("password"),
+        cb: () => {
+          navigate(from, { replace: true });
+        },
+      })
+    );
   };
 
   return (

@@ -1,40 +1,23 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import {  useEffect, useRef, useState } from "react"
-import { useSelector } from "react-redux"
+import {  useEffect, useRef } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import {  useParams } from "react-router-dom"
-import { API_TOKEN } from "../../constants/constans"
+
+import { getPostQuery } from "../../redux/actionCreators/selectedPostAC"
 import Detail from "../Detail/Detail"
 
 const Detailpost = () => {
         const { postsId } = useParams();
-        const [post, setPost] = useState({});
-        const [comments, setComments] = useState([]);
+        const post = useSelector((store) => store.post);
         const person = useSelector((store) => store.person);
         const controller = useRef(new AbortController());
+        const controllerForApi = controller.current.signal;
+        const dispatch = useDispatch();
         useEffect(() => {
-          fetch(`https://api.react-learning.ru/posts/${postsId}`, {
-          headers: {
-        authorization: `Bearer ${API_TOKEN}`,
-            },
-          })
-            .then((response) => response.json())
-            .then((dataFromServer) => setPost(dataFromServer));
-      
-          return () => {
-         controller.current.abort();
-          };
-        }, [postsId, API_TOKEN]);
+          dispatch(getPostQuery(person.token, postsId));
+        }, [postsId, dispatch, person.token, controllerForApi]);
 
-        useEffect(() => {
-                fetch(`https://api.react-learning.ru/posts/comments/${postsId}`, {
-                  metod: "GET",
-                  headers: {
-                    authorization: `Bearer ${person.token}`,
-                  },
-                })
-                  .then((response) => response.json())
-                  .then((dataFromServer) => setComments(dataFromServer));
-              }, [postsId, person.token]);  
+       
       console.log(post, postsId)
         const content = () => {
           if (!post._id) {
@@ -55,13 +38,6 @@ const Detailpost = () => {
                         likes ={post?.likes.length} />     
                 }
                 </div>
-                
-      {comments.map((comment, index) => (
-        <div key={index}>
-          {comment.author.name}: {comment.text}
-        </div>
-      ))}
-   
                 </>
                       )
             };

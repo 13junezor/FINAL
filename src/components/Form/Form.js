@@ -1,7 +1,6 @@
 import {  useState } from "react"
-import { useDispatch } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import { useNavigate } from "react-router-dom"
-
 import {  queryNewPost } from "../../redux/actionCreators/postAC"
 
 import './style.css'
@@ -22,6 +21,7 @@ const changeImg = (e) => {
 const changeTag = (e) => {
     setTags(e.target.value) }
 /* отлавливаем значения формы ДОБАВИТЬ ВАЛИДАЦИЮ*/
+const person = useSelector((store) => store.person);
 const submitHandler = () => {
   const preparedPostQuery = {
     title,
@@ -29,8 +29,8 @@ const submitHandler = () => {
     image,
     tags: tags.split(',').map((el) => el.trim()) 
   }
-   
-     dispatch(queryNewPost(JSON.stringify(preparedPostQuery)))
+  const body = JSON.stringify(preparedPostQuery);
+  dispatch(queryNewPost(body, person.token));
     setTitle('')
     setText('')
     setImage('')
@@ -103,7 +103,7 @@ const submitHandler = () => {
       value={tags}
       placeholder="По тегам друзья смогу найти ваши открытки"
       />
-      {/* <div id="emailHelp" className="form-text"></div> */}
+     
     </div>
         <button 
     type="submit" 

@@ -1,6 +1,6 @@
 import { SET_SEARCH_VALUE } from "../types/filterTypes";
 
-export const filterValue = (newFilterValue) => ({
+export const setSearchValue = (newSearchValue) => ({
     type: SET_SEARCH_VALUE,
-    payload: newFilterValue
+    payload: newSearchValue
 })

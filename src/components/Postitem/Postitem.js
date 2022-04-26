@@ -9,50 +9,52 @@ import { useDispatch, useSelector } from "react-redux";
 import { deletePostQuery } from "../../redux/actionCreators/postAC";
 import { deleteLikeQuery, setLikeQuery } from "../../redux/actionCreators/likeAC";
 
-const Postitem = ({id,likes,comments,like, author, title, text, img, tag, index, isAut}) => {
+
+const Postitem = ({index, image,author,title,text,tags,likes,_id, comments}) => {
   const navigate = useNavigate()  
   const person = useSelector((store) => store.person)
-  const post = useSelector((store) => store.post)
-const descript = text.length > 200 ? text.slice(0,200) + '...' : text
+
+const descript = text?.length > 200 ? text.slice(0,200) + '...' : text
 const dispatch = useDispatch()
 const deleteHandler = () => {
 
   let result = confirm("Вы точно хотите удалить пост?");
   if (result === true) {
-    dispatch(deletePostQuery(id, person.token));
+    dispatch(deletePostQuery(_id, person.token));
   }
 };
 
-let pop = ''
-  if (isAut._id === person._id) {
-    pop = 'Ваш пост'
-  }
+//let pop = ''
+  //if (isAut._id === person._id) {
+   // pop = 'Ваш пост'
+ // }
 
 const likeHandler = () => {
-  console.log(post[60].author._id, post[61].author._id, person._id )
-    if (!like.includes(person._id)) {
-    dispatch(setLikeQuery(id, person.token));
+  console.log(person._id )
+    if (!likes.includes(person._id)) {
+    dispatch(setLikeQuery(_id, person.token));
   } else {
-    dispatch(deleteLikeQuery(id, person.token));
+    dispatch(deleteLikeQuery(_id, person.token));
   }
 };
+
  return (
    <>
         <div className="container post">
-        <div className="media-heading">{index+1}.<strong>{title}</strong> </div>
-        <div> {pop} </div>
+        <div className="media-heading"><strong>{index+1}. {title}</strong> </div>
+        <div> Автор: {author?.name} </div>
         <div className="text-center">
-       <img src={img} className="rounded pict" alt="img"/>
+       <img src={image} className="rounded pict" alt="img"/>
         </div>
         <div className="card__desc">
-        <div><strong>{author}:</strong>{descript}</div>
-        <div>#{tag}</div>
+        <div><strong>{author?.name}:</strong>{descript}</div>
+        <div>#{tags}</div>
         
         <div>
           <IconButton aria-label="add to favorites" onClick={likeHandler}>
             <FavoriteIcon />
           </IconButton>
-         {likes}
+         {likes?.length} Комментариев: {comments?.length}
         </div>
        
         </div>
@@ -60,7 +62,7 @@ const likeHandler = () => {
         
         <div className="d-flex justify-content-around">
      <button 
-     onClick={() => {navigate(`/posts/${id}`)}}
+     onClick={() => {navigate(`/posts/${_id}`)}}
      type="button" 
      className="btn btn-outline-info rding">
          Рассмотреть
