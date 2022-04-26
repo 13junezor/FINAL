@@ -5,6 +5,7 @@ import Redach from "../redach/redach";
 import FavoriteIcon from "@mui/icons-material/Favorite";
 import { IconButton } from "@mui/material";
 import CustomizedDialogs from "../modalComm/modalComm";
+import { useSelector } from "react-redux";
 
 const Detail = ({ _id, author, title, text, img, tag, likes, index }) => {
   const navigate = useNavigate();
@@ -19,7 +20,7 @@ const Detail = ({ _id, author, title, text, img, tag, likes, index }) => {
     e.preventDefault();
     closeModal();
   };
-
+  const post = useSelector((store) => store.post);
   return (
     <>
       <div className="container">
@@ -63,12 +64,8 @@ const Detail = ({ _id, author, title, text, img, tag, likes, index }) => {
       </div>
 
       <Modal state={viewModal} onClose={closeModal}>
-        <Redach
-          onSubmit={submitHandler}
-          text={text}
-          title={title}
-          img={img}
-          tag={tag}
+        <Redach onClick={submitHandler}
+         {...post}
         />
       </Modal>
     </>

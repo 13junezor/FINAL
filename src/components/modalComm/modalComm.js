@@ -88,7 +88,7 @@ export default function CustomizedDialogs() {
         open={open}
       >
         <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-          Modal title
+          Все комментарии
         </BootstrapDialogTitle>
         <DialogContent dividers>
         {comments.map((comment, index) => (
@@ -99,7 +99,7 @@ export default function CustomizedDialogs() {
         </DialogContent>
         <DialogActions>
           <Button autoFocus onClick={handleClose}>
-            Save changes
+            Закрыть
           </Button>
         </DialogActions>
       </BootstrapDialog>

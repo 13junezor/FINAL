@@ -18,7 +18,7 @@ const Detailpost = () => {
         }, [postsId, dispatch, person.token, controllerForApi]);
 
        
-      console.log(post, postsId)
+      console.log(person, post)
         const content = () => {
           if (!post._id) {
             return <strong>Подождите...</strong>;

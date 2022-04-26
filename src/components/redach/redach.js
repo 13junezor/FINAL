@@ -1,63 +1,45 @@
 import {  useState } from "react"
-import { useSelector } from "react-redux"
-import { useNavigate, useParams } from "react-router-dom"
+
+import { useDispatch, useSelector } from "react-redux";
+import { updatePostQuery } from "../../redux/actionCreators/selectedPostAC";
 import './style.css'
-function Redach(){
-    const LSPostKey = 'postos'
-    const postos = useSelector(store => store.post)
-  const {postsId} = useParams()
+function Redach({ title, image, text, _id }) {
+  const [newTitle, setNewTitle] = useState(title);
+  const [newImage, setNewImage] = useState(image);
+  const [newText, setNewText] = useState(text);
 
+  const dispatch = useDispatch();
 
-   const [title, setTitle] = useState('')
-   const [text, setText] = useState('')
-   const [img, setImg] = useState('')
-   const [tag, setTag] = useState('')
-/* отлавливаем занчения инпута*/
-const changeTitle = (e) => {
-    setTitle(e.target.value)
-    }
-const changeText = (e) => {
-    setText(e.target.value)
-    }
-const changeImg = (e) => {
-    setImg(e.target.value)
-    }
-const changeTag = (e) => {
-    setTag(e.target.value)
-    }
-    const navigate = useNavigate()  
-const submitHandler = (e) => {
-    e.preventDefault()
-    const indexPost = postos.findIndex(item => item.id === +postsId)
-    postos[indexPost].text = text
-    postos[indexPost].title = title
-    postos[indexPost].img = img
-    postos[indexPost].tag = tag
-     console.log(postos)
-     console.log(indexPost)
-    setTitle(title)
-    setText(text)
-    setImg(img)
-    setTag(tag)
-    localStorage.setItem(LSPostKey, JSON.stringify(postos))
-    navigate(`/posts`)
-    
-       }
-       
-      
+  const person = useSelector((store) => store.person);
+
+  const submitHandler = () => {
+    const preparedPostQuery = {
+      title: newTitle,
+      image: newImage,
+      text: newText,
+    };
+    // console.log({ preparedPostQuery });
+    const body = JSON.stringify(preparedPostQuery);
+
+    dispatch(updatePostQuery(body, person.token, _id));
+
+    setNewTitle(newTitle);
+    setNewImage(newImage);
+    setNewText(newText);
+  };
 
    return (
-    <form   onSubmit={submitHandler} className="d-flex flex-column align-items-center">
+    <form  onSubmit={submitHandler} className="d-flex flex-column align-items-center">
     <div className="mb-3">
       <label for="exampleInputEmail1" 
       className="form-label title">Заголовок</label>
       <input 
-      onChange={changeTitle}
+      onChange={(e) => setNewTitle(e.target.value)}
       type="text" 
       className="form-control " 
       id="titl" 
       aria-describedby="emailHelp" 
-      value={title}
+      value={newTitle}
       />
       <div id="emailHelp" className="form-text">Измените заголовок</div>
     </div>
@@ -65,11 +47,11 @@ const submitHandler = (e) => {
             <div class="form-group">
     <label for="exampleFormControlTextarea1">текст статьи</label>
     <textarea 
-    onChange={changeText}
+    onChange={(e) => setNewText(e.target.value)}
     className="form-control pole" 
     id="exampleFormControlTextarea1" 
     rows="3"
-    value={text}>
+    value={newText}>
     
     </textarea>
   </div>
@@ -81,27 +63,15 @@ const submitHandler = (e) => {
       <label for="exampleInputPassword1"
        className="form-label img">Ссылка на изображение</label>
       <input 
-      onChange={changeImg}
+      onChange={(e) => setNewImage(e.target.value)}
       type="text" 
       className="form-control" 
       id="exampleInputPassword1" 
-      value={img}
+      value={newImage}
       />
       <div id="emailHelp" className="form-text">Измените ссылку на изображение</div>
     </div>
-    <div 
-    className="mb-3">
-      <label for="exampleInputPassword1"
-       className="form-label tag">Укажите тег</label>
-      <input 
-      onChange={changeTag}
-      type="text" 
-      className="form-control" 
-      id="exampleInputPassword1" 
-      value={tag}
-      />
-      <div id="emailHelp" className="form-text">Измените тег статьи</div>
-    </div>
+  
         <button 
     type="submit" 
     className="btn btn-primary">

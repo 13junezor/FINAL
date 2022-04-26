@@ -1,6 +1,4 @@
-
 import { GET_POST, UPDATE_POST } from "../types/postTypes"
-
 
 export const getPost = (post) => ({
 	type: GET_POST,
