@@ -27,7 +27,7 @@ const deleteHandler = () => {
 let pop = ''
 let del = <></>
   if (author._id === person._id) {
-    pop = 'Ваш пост'
+    pop = 'Это Ваш пост!'
  del = <button 
 onClick={deleteHandler}
 type="button" 
@@ -49,9 +49,8 @@ const likeHandler = () => {
  return (
    <>
         <div className="container post">
-        <div className="media-heading"><strong>{index+1}. {title}</strong> </div>
-        <div> Автор: {author?.name} </div>
-        <div> Автор: {pop} </div>
+        <div className="media-heading"><strong>{index+1}. {title}</strong> <p>{pop}</p> </div>
+                <div> Автор: {author?.name} </div>
         <div className="text-center">
        <img src={image} className="rounded pict" alt="img"/>
         </div>
