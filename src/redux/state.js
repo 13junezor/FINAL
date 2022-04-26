@@ -10,7 +10,7 @@ const initState = () => {
             person: {
                 name: '',
                 email: '',
-                token, 
+                token,
             },
             post: {},
         

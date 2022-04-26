@@ -11,7 +11,7 @@ function Head() {
        <img src="logo.png" alt='logo' className="logo_img"/>
       
       <li className="nav-item">
-    <Link className='nav-link but' to="/">Главная</Link>
+    <Link className='nav-link but' to="/posts">Главная</Link>
     </li>
     <li className="nav-item">
         <Link className='nav-link but' to="/signup">Зарегистрироваться</Link>
