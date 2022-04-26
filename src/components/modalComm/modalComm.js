@@ -53,20 +53,20 @@ BootstrapDialogTitle.propTypes = {
 };
 
 export default function CustomizedDialogs() {
-    const { _id } = useParams();
+    const { postsId } = useParams();
   
     const [comments, setComments] = useState([]);
     const person = useSelector((store) => store.person);
     useEffect(() => {
-        fetch(`https://api.react-learning.ru/posts/comments/${_id}`, {
-          metod: "GET",
-          headers: {
-            authorization: `Bearer ${person.token}`,
-          },
-        })
-          .then((response) => response.json())
-          .then((dataFromServer) => setComments(dataFromServer));
-      }, [_id, person.token]);  
+      fetch(`https://api.react-learning.ru/posts/comments/${postsId}`, {
+        metod: "GET",
+        headers: {
+          authorization: `Bearer ${person.token}`,
+        },
+      })
+        .then((response) => response.json())
+        .then((dataFromServer) => setComments(dataFromServer));
+    }, [postsId, person.token]);  
 
   const [open, setOpen] = React.useState(false);
 
@@ -80,7 +80,7 @@ export default function CustomizedDialogs() {
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Open dialog
+        Читать комментарии
       </Button>
       <BootstrapDialog
         onClose={handleClose}
