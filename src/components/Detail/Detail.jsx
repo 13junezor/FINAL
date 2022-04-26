@@ -6,7 +6,7 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import { IconButton } from "@mui/material";
 import CustomizedDialogs from "../modalComm/modalComm";
 
-const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
+const Detail = ({ _id, author, title, text, img, tag, likes, index }) => {
   const navigate = useNavigate();
   const [viewModal, setViewModal] = useState(false);
   const openModal = () => {

@@ -3,23 +3,24 @@ import {  useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useDebounce } from "../../hooks/useDebounce"
 import { loadAllPosts } from "../../redux/actionCreators/postAC"
-import { filterValue } from "../../redux/actionCreators/searchAC"
+import {  setSearchValue } from "../../redux/actionCreators/searchAC"
 import Postitem from "../Postitem/Postitem"
 import style from "./style.module.css";
 
 const PostList = () => {
- const postos = useSelector(store => store.post)
+  const dispatch = useDispatch()
+ const posts = useSelector((store) => store.posts)
+ const person = useSelector((store) => store.person);
 const search = useSelector((store) => store.search)
  const filterHandler = (e) => {
-   dispatch(filterValue(e.target.value.trim()))
+   dispatch(setSearchValue(e.target.value.trim()))
  }
-const dispatch = useDispatch()
-
-const debouncedSearch = useDebounce(search, 500)
-
+ const debouncedSearch = useDebounce(search, 500)
 useEffect(() => {
-  dispatch(loadAllPosts(debouncedSearch))
-}, [debouncedSearch])
+  dispatch(loadAllPosts(debouncedSearch, person.token));
+}, [debouncedSearch, dispatch, person.token]);
+console.log(posts[0])
+
 
     return (
     <>
@@ -38,19 +39,9 @@ useEffect(() => {
     </form>
  
     <div className={style.postlist__wrapper}>
-         {postos.map((postos, i) => (
-         <Postitem key={postos._id}
-          index={i} id={postos._id} 
-          title={postos?.title}
-          text={postos?.text} 
-          img={postos?.image}
-          tag={postos?.tags.join(' #')}
-          likes={postos.likes?.length}
-          like={postos.likes}
-          author={postos.author?.name}
-          isAut={postos.author}
-           />     
-  ))}
+    {posts.map((post, i) => {
+        return <Postitem key={post._id} index={i}{...post} />;
+      })}
   </div>
   
  

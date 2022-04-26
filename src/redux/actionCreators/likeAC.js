@@ -1,6 +1,5 @@
 import { LIKE_POST } from "../types/postTypes"
 
-
 export const setLike = (_id) => ({
     type: LIKE_POST,
     payload: _id,
