@@ -15,6 +15,7 @@ function Head() {
 let reg = <></>
 let ext = <></>
 let send = <></>
+let profile = <></>
   if (!person._id) {
     into =  <li className="nav-item">
     <Link className='nav-link but' to="signin">Войти</Link>
@@ -34,6 +35,9 @@ let send = <></>
       send =   <li className="nav-item">
       <Link className='nav-link but' to="posting">Отправить</Link>
       </li>
+      profile =  <li className="nav-item">
+      <Link className='nav-link but' to="profile">Мой профиль</Link>
+      </li>
  }
  
 
@@ -52,9 +56,9 @@ let send = <></>
         <li className="nav-item">
         <Link className='nav-link but' to="contacts">Команда авторов</Link>
         </li>
-
+      {profile}
       {ext}
-                    </ul>
+    </ul>
     </div>
 </nav>
   )

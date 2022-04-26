@@ -38,13 +38,12 @@ className="btn btn-outline-danger dlting">
 
 
 const likeHandler = () => {
-  console.log(person._id )
-    if (!likes.includes(person._id)) {
+     if (!likes.includes(person._id)) {
     dispatch(setLikeQuery(_id, person.token));
   } else {
     dispatch(deleteLikeQuery(_id, person.token));
   }
-};
+}
 
  return (
    <>

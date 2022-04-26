@@ -18,7 +18,7 @@ const Detailpost = () => {
         }, [postsId, dispatch, person.token, controllerForApi]);
 
        
-      console.log(person, post)
+  
         const content = () => {
           if (!post._id) {
             return <strong>Подождите...</strong>;
@@ -30,12 +30,14 @@ const Detailpost = () => {
                 <div className='container post'>
                  <div>Детальная информация об открытке: </div> 
                 {
-                                  <Detail
-                        title={post?.title}
-                        text={post?.text} 
-                        img={post?.image}
-                        tag={post?.tags.join(', ')}
-                        likes ={post?.likes.length} />     
+          <Detail
+          title={post?.title}
+          text={post?.text} 
+          img={post?.image}
+          tag={post?.tags.join(', ')}
+          likes={post?.likes}
+          id={post?._id}   />  
+           
                 }
                 </div>
                 </>

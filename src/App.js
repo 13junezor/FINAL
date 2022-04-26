@@ -14,6 +14,8 @@ import { RequireAuth } from './components/Auth/RequireAuth/RequireAuth';
 import SignIn from './components/SingIn/SignIn';
 import Greeting from './components/Greeting/Greeting';
 import SignUp from './components/Auth/registr';
+import Profile from './components/profile/profile';
+import { MyPosts } from './components/myPosts/myPosts';
 
 function App() {
 
@@ -42,7 +44,15 @@ function App() {
             <RequireAuth>
             <Detailpost />
             </RequireAuth>} />
+            <Route path="/profile" element={
+            <RequireAuth>
+            <Profile />
+            </RequireAuth>} />
             <Route path="/signin" element={<SignIn />} />
+            <Route path="/myposts" element={
+            <RequireAuth>
+            <MyPosts />
+            </RequireAuth>} />
           </Routes>
   </BrowserRouter>
   </div>
