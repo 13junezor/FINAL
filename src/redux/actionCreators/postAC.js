@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { API_TOKEN } from "../../constants/constans"
-import {  ADD_NEW_POST, DELETE_POST,   SET_ALL_POSTS, UPDATE_POST } from "../types/postTypes"
+import {  ADD_NEW_POST, COM_MENT, DELETE_POST,   SET_ALL_POSTS, UPDATE_POST } from "../types/postTypes"
 import axios from 'axios'
 import { axiosInstance } from "../../cfg/axios"
 
@@ -67,3 +67,22 @@ export const deletePostQuery = (_id, token) => async (dispatch) =>{
 	}
 }
 
+export const addNewComm = (allComm) => ({
+	type: COM_MENT,
+	payload: allComm
+})
+
+export const queryNewComm = (comments, token, _id, ) => async (dispatch) => {
+	const response = await fetch(`https://api.react-learning.ru/posts/comments/${_id}`, {
+		method: "POST",
+		headers: {
+			authorization: `Bearer ${token}`,
+			'Content-Type': 'application/json' 
+		},
+		body: comments
+	})
+	const commFromApi = await response.json()
+
+	dispatch(addNewComm(commFromApi))
+
+}

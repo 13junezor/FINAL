@@ -36,7 +36,8 @@ const Detailpost = () => {
           img={post?.image}
           tag={post?.tags.join(', ')}
           likes={post?.likes}
-          id={post?._id}   />  
+          id={post?._id}
+          author={post?.author.name}   />  
            
                 }
                 </div>

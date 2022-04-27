@@ -1,4 +1,5 @@
 import { combineReducers } from "redux";
+import { commentReducer } from "./commetReducer";
 import { filterReducer } from "./filterReducer";
 import { personReducer } from "./personReducer";
 import { postsReducer } from "./postsReducer";
@@ -10,5 +11,6 @@ const rootReducer = combineReducers({
 	person: personReducer,
     post: postReducer,
     profile: profileReducer,
+    comments: commentReducer,
 })
 export default rootReducer
