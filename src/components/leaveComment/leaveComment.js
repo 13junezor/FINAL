@@ -89,7 +89,7 @@ const submitHandler = () => {
         <DialogContent dividers>
         <form  onSubmit={submitHandler} className="d-flex flex-column align-items-center">
         <div className="mb-3">
-    <div id="emailHelp" className="form-text">Имя</div>
+    <div id="emailHelp" className="form-text">Ваш комментарий</div>
     </div>
     <div 
     className="mb-3">
