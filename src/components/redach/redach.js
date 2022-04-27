@@ -7,11 +7,8 @@ function Redach({ title, image, text, _id }) {
   const [newTitle, setNewTitle] = useState(title);
   const [newImage, setNewImage] = useState(image);
   const [newText, setNewText] = useState(text);
-
   const dispatch = useDispatch();
-
   const person = useSelector((store) => store.person);
-
   const submitHandler = () => {
     const preparedPostQuery = {
       title: newTitle,
