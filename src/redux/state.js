@@ -13,7 +13,7 @@ const initState = () => {
                 token,
             },
             post: {},
-        
+        profile: {},
         }
     }
     

@@ -8,10 +8,12 @@ import Typography from '@mui/material/Typography';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import './style.css'
+import ProfileEdit from './profileEdit';
 export default function Profile() {
     const navigate = useNavigate();  
     const person = useSelector((store) => store.person)
  
+    
     return (
         <>
       <Card className='profile' sx={{ maxWidth: 345 }}>
@@ -36,8 +38,11 @@ export default function Profile() {
           <Button onClick={() => {
               navigate(`/myposts`);
             }} size="small">Посмотреть мои посты</Button>
+          
                   </CardActions>
       </Card>
+     
+     <ProfileEdit />
      
       </>
     );
