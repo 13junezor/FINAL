@@ -1,2 +1,3 @@
 export const EDIT_PROFILE = "EDIT_PROFILE"
 export const UPDATE_PROFILE = "UPDATE_PROFILE"
+export const UPDATE_AVATAR = "UPDATE_AVATAR"

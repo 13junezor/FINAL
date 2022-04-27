@@ -18,7 +18,6 @@ import Profile from './components/profile/profile';
 import { MyPosts } from './components/myPosts/myPosts';
 
 function App() {
-
   return (
    <>
    <Container maxWidth="xl">
@@ -58,8 +57,7 @@ function App() {
   </div>
   </Container>
   </>
-    
-  )
+      )
 }
 
 export default App;

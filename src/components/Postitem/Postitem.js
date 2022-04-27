@@ -26,7 +26,7 @@ const deleteHandler = () => {
 
 let pop = ''
 let del = <></>
-  if (author._id === person._id) {
+  if (author?._id === person?._id) {
     pop = 'Это Ваш пост!'
  del = <button 
 onClick={deleteHandler}

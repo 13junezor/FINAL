@@ -12,8 +12,8 @@ import CloseIcon from '@mui/icons-material/Close';
 import {  useState } from "react"
 import { useDispatch, useSelector } from 'react-redux';
 import { Box, TextField } from '@mui/material';
-import { updateProfileQuery} from '../../redux/actionCreators/profileAC'
-
+import { getProfileQuery, updateProfileQuery} from '../../redux/actionCreators/profileAC'
+import {  useEffect, useRef } from "react"
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
     padding: theme.spacing(2),
@@ -61,11 +61,9 @@ export default function CustomizedDialogs({ name, about }) {
     const preparedProfileQuery = {
       name: newName,
       about: newAbout,
-      
-    };
+          };
    
     const body = JSON.stringify(preparedProfileQuery);
-
     dispatch(updateProfileQuery(body, person.token));
     setNewName(newName);
     setNewAbout(newAbout);
@@ -79,7 +77,11 @@ export default function CustomizedDialogs({ name, about }) {
   const handleClose = () => {
     setOpen(false);
   };
-
+  const controller = useRef(new AbortController());
+  const controllerForApi = controller.current.signal;
+  useEffect(() => {
+    dispatch(getProfileQuery(person.token));
+  }, [dispatch, person.token, controllerForApi]);
   return (
 <div>
       <Button variant="outlined" onClick={handleClickOpen}>
