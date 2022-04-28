@@ -11,7 +11,6 @@ export const signUpQuery =
                     password,
                 });
                                if (response.status === 201) {
-
                     dispatch(
                         signInQuery({ email, password, cb: successCb })
                     );

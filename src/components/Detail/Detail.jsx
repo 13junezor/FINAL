@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Modal from "../Modal/Modal";
 import Redach from "../redach/redach";
-
+import './style.css'
 import CustomizedDialogs from "../modalComm/modalComm";
 import {  useSelector } from "react-redux";
+import Comform from "../leaveComment/leaveComment";
 
 const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
   const navigate = useNavigate();
@@ -27,9 +28,7 @@ const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
     Изменить
   </button>
   }
-  
-
-  
+    
   return (
     <>
       <div className="container">
@@ -53,7 +52,7 @@ const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
           Публикация понравилась: {likes.length} раз
         </p>
 
-        <div className="d-flex justify-content-around">
+        <div className="btn-group btn-group-sm butt" role="group" aria-label="Basic example">
           <button
             onClick={() => {
               navigate(`/posts`);
@@ -63,6 +62,7 @@ const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
           >
             Назад
           </button>
+          <Comform  />
           <CustomizedDialogs />
           {edit}
         </div>

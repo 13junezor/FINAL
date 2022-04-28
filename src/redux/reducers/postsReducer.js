@@ -1,4 +1,4 @@
-import {  DELETE_POST,  SET_ALL_POSTS,  LIKE_POST, ADD_NEW_POST,  } from "../types/postTypes";
+import {  DELETE_POST,  SET_ALL_POSTS,  LIKE_POST, ADD_NEW_POST, COM_MENT,  } from "../types/postTypes";
 
 export const postsReducer = (state = [], action) => {
 
@@ -19,7 +19,11 @@ export const postsReducer = (state = [], action) => {
 				if(post._id === action.payload._id) return action.payload
 				return post
 			})
-		
+		case COM_MENT:
+			return [
+				...state,
+				action.payload
+			]
 		
 	
 		default:

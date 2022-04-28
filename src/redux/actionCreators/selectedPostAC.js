@@ -14,14 +14,12 @@ export const getPostQuery = (  token, _id, controllerForApi) => async (dispatch)
 			authorization: `Bearer ${token}`,
 			'Content-Type': 'application/json' 
 		},
-			
-	})
+			})
 
 	const postFromApi = await response.json()
 
 	dispatch(getPost(postFromApi))
 }
-
 
 export const updatePost = (createPost) => ({
 	type: UPDATE_POST,
@@ -41,12 +39,8 @@ export const updatePostQuery = ( preparedPostQuery, token, _id) => async (dispat
 	})
 
 	if (response.status === 200) {
-		
-	const postFromApi = await response.json()
-	
-	dispatch(updatePost(postFromApi))
-	
-	}
+			const postFromApi = await response.json()
+		dispatch(updatePost(postFromApi))
+		}
 	else {alert("Нельзя редактировать чужой пост")}
-
 }
