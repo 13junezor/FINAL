@@ -39,6 +39,7 @@ useEffect(() => {
     <div className={style.postlist__wrapper}>
     {posts.map((post, i) => {
         return <Postitem key={post._id} isAut={post?.autor?._id} index={i}{...post} />;
+       
       })}
   </div>
   
