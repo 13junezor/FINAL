@@ -9,8 +9,7 @@ function Redach({ title, image, text, _id }) {
   const [newText, setNewText] = useState(text);
   const dispatch = useDispatch();
   const person = useSelector((store) => store.person);
-  const submitHandler = (e) => {
-    e.preventDefault()
+  const submitHandler = () => {
     const preparedPostQuery = {
       title: newTitle,
       image: newImage,
@@ -23,7 +22,6 @@ function Redach({ title, image, text, _id }) {
     setNewTitle(newTitle);
     setNewImage(newImage);
     setNewText(newText);
-    alert('Пост изменен!')
   };
 
    return (

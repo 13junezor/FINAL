@@ -140,9 +140,5 @@ export default function CustomizedDialogs({ name, about }) {
         </DialogActions>
       </BootstrapDialog>
     </div>
-
-
-
-    
-   ) 
+      ) 
 }
