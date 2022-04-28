@@ -57,7 +57,8 @@ export default function CustomizedDialogs({ name, about }) {
   const [newAbout, setNewAbout] = useState(about);
    const dispatch = useDispatch();
   const person = useSelector((store) => store.person);
-  const submitHandler = () => {
+  const submitHandler = (e) => {
+    e.preventDefault()
     const preparedProfileQuery = {
       name: newName,
       about: newAbout,
@@ -67,6 +68,7 @@ export default function CustomizedDialogs({ name, about }) {
     dispatch(updateProfileQuery(body, person.token));
     setNewName(newName);
     setNewAbout(newAbout);
+    setOpen(false)
   };
 
   const [open, setOpen] = React.useState(false);
@@ -138,9 +140,5 @@ export default function CustomizedDialogs({ name, about }) {
         </DialogActions>
       </BootstrapDialog>
     </div>
-
-
-
-    
-   ) 
+      ) 
 }
