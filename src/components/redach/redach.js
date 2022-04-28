@@ -19,7 +19,6 @@ function Redach({ title, image, text, _id }) {
     const body = JSON.stringify(preparedPostQuery);
 
     dispatch(updatePostQuery(body, person.token, _id));
-
     setNewTitle(newTitle);
     setNewImage(newImage);
     setNewText(newText);

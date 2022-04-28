@@ -55,7 +55,7 @@ const Detail = ({ id, author, title, text, img, tag, likes, index }) => {
         <div className="btn-group btn-group-sm butt" role="group" aria-label="Basic example">
           <button
             onClick={() => {
-              navigate(`/posts`);
+              navigate(-1);
             }}
             type="button"
             className="btn btn-secondary rding"
