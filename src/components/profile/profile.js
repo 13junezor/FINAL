@@ -20,7 +20,7 @@ export default function Profile() {
     React.useEffect(() => {
       dispatch(getProfileQuery(person.token));
     }, [dispatch, person.token, controllerForApi]);
-    console.log(person.name, prof.name)
+ 
     return (
         <>
       <Card className='profile' sx={{ maxWidth: 345 }}>

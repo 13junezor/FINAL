@@ -23,6 +23,7 @@ function Redach({ title, image, text, _id }) {
     setNewTitle(newTitle);
     setNewImage(newImage);
     setNewText(newText);
+    alert('Пост обновлен!')
   };
 
    return (
