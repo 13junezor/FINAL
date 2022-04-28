@@ -20,7 +20,7 @@ export default function Profile() {
     React.useEffect(() => {
       dispatch(getProfileQuery(person.token));
     }, [dispatch, person.token, controllerForApi]);
-    console.log(prof.name)
+    console.log(person.name, prof.name)
     return (
         <>
       <Card className='profile' sx={{ maxWidth: 345 }}>
@@ -38,7 +38,7 @@ export default function Profile() {
           О себе: {prof.about}  
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            Почта: {person.email}
+            Почта: {prof.email}
           </Typography>
         </CardContent>
         <CardActions>
