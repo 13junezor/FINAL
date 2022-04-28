@@ -28,7 +28,6 @@ function Contacts() {
           link="https://github.com/silent174"
         />
       </div>
-      <h3 className="listeners">СберУниверситет 2022г.</h3>
     </>
   );
 }

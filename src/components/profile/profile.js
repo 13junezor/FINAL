@@ -20,7 +20,7 @@ export default function Profile() {
     React.useEffect(() => {
       dispatch(getProfileQuery(person.token));
     }, [dispatch, person.token, controllerForApi]);
-    console.log(prof.name)
+
     return (
         <>
       <Card className='profile' sx={{ maxWidth: 345 }}>
@@ -45,11 +45,11 @@ export default function Profile() {
           <Button onClick={() => {
               navigate(`/myposts`);
             }} size="small">Посмотреть мои посты</Button>
-          
+           <ProfileEdit />
                   </CardActions>
       </Card>
      
-     <ProfileEdit />
+    
      
       </>
     );

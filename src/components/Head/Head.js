@@ -47,7 +47,7 @@ let profile = <></>
       <ul className="navbar-nav d-flex flex-row">
        <img src="logo.png" alt='logo' className="logo_img"/>
       <li className="nav-item">
-      <Link className='nav-link but' to="posts">Все открытки</Link>
+      <Link className='nav-link but' to="posts">Главная</Link>
       </li>
       {into}
       {reg}
