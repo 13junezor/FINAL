@@ -20,6 +20,7 @@ useEffect(() => {
   dispatch(loadAllPosts(debouncedSearch, person.token));
 }, [debouncedSearch, dispatch, person.token]);
 
+
     return (
     <>
       
